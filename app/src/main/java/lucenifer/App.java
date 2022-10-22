@@ -19,7 +19,7 @@ public class App {
 		searchController.indexDocs();
 		UserQueryParser userQueryParser = new UserQueryParser(DEFAULT_USER_QUERY_SEPARATOR);
 
-		System.out.println("Type a query in the form <field>=<value> (ex.: title=network):");
+		System.out.println("Type a query using the syntax <field>=<value> (ex.: title=network):");
 		String input = ConsoleInputController.readString();
 
 		UserQuery query;

@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import lucenifer.search.model.QueryResult;
 import lucenifer.search.model.RawDocument;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.core.WhitespaceAnalyzer;
 import org.apache.lucene.analysis.miscellaneous.PerFieldAnalyzerWrapper;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -55,7 +54,6 @@ public class SearchController {
 		QueryParser parser = new QueryParser(field, new WhitespaceAnalyzer());
 		try {
 			Query query = parser.parse(queryString);
-			log.debug("AO={}", query);
 			try (Directory directory = FSDirectory.open(Paths.get(indexPath))) {
 				try (IndexReader reader = DirectoryReader.open(directory)) {
 					IndexSearcher searcher = new IndexSearcher(reader);
